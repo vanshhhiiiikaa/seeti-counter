@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seeti Counter — Whistle Listener</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="site-head">
+    <p class="eyebrow-free">Kitchen timer for the pressure cooker</p>
+    <h1>Seeti Counter</h1>
+    <p class="tagline">Listens for your cooker's whistle and counts it for you.</p>
+  </header>
+
+  <main>
+
+    <section class="counter-card" id="counterCard">
+      <div class="count-display">
+        <span class="count-number" id="countNumber">0</span>
+        <span class="count-label">whistles</span>
+      </div>
+
+      <div class="target-note" id="targetNote">Pick a recipe below to see how many whistles it needs.</div>
+
+      <div class="controls">
+        <button class="btn btn-listen" id="listenBtn">🎙️ Start Listening</button>
+        <div class="manual-controls">
+          <button class="btn btn-manual" id="minusBtn" aria-label="Subtract one whistle">−</button>
+          <button class="btn btn-manual" id="plusBtn" aria-label="Add one whistle">+</button>
+          <button class="btn btn-reset" id="resetBtn">Reset</button>
+        </div>
+      </div>
+
+      <p class="mic-status" id="micStatus"></p>
+
+      <button class="btn btn-stop-alarm" id="stopAlarmBtn" hidden>🔕 Stop Alarm</button>
+
+      <div class="custom-target-row">
+        <label for="customTarget">Or set your own target</label>
+        <div class="custom-target-input">
+          <input type="number" id="customTarget" min="1" max="30" placeholder="e.g. 4">
+          <button class="btn btn-set-target" id="setTargetBtn">Set Alarm</button>
+        </div>
+      </div>
+
+      <div class="sensitivity-row">
+        <label for="sensitivity">Mic sensitivity</label>
+        <input type="range" id="sensitivity" min="1" max="10" value="5">
+        <span class="sens-hint">Turn up if it's missing whistles, down if it's over-counting.</span>
+      </div>
+    </section>
+
+    <section class="recipes-section">
+      <h2>Whistle guide</h2>
+      <p class="section-sub">Typical whistle counts for common dishes — adjust for your cooker and quantity.</p>
+
+      <div class="recipe-grid" id="recipeGrid">
+        <!-- filled by script.js -->
+      </div>
+    </section>
+
+    <footer class="site-foot">
+      <p>Whistle counts are estimates and vary by cooker size, flame, and quantity. When unsure, go by aroma and steam
+        rather than the number alone.</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

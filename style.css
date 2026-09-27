@@ -1,0 +1,361 @@
+:root {
+  --bg: #14110d;
+  --bg-card: #1c1712;
+  --bg-card-raised: #241d16;
+  --border: #35291c;
+  --text: #f3ece1;
+  --text-dim: #b9ac98;
+
+  --turmeric: #f4b400;
+  --chili: #e6483a;
+  --curry-green: #5fb85a;
+  --paprika: #f0862f;
+
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Work Sans', sans-serif;
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(244, 180, 0, 0.06), transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(230, 72, 58, 0.05), transparent 45%);
+}
+
+h1,
+h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  margin: 0;
+}
+
+.site-head {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 56px 24px 24px;
+  text-align: center;
+}
+
+.eyebrow-free {
+  color: var(--paprika);
+  font-size: 0.95rem;
+  margin: 0 0 6px;
+}
+
+.site-head h1 {
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  margin-top: 10px;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+.counter-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.count-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 12px;
+}
+
+.count-number {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(4rem, 16vw, 6.5rem);
+  font-weight: 700;
+  color: var(--turmeric);
+  line-height: 1;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.count-number.pulse {
+  transform: scale(1.12);
+  color: var(--chili);
+}
+
+.count-label {
+  font-size: 1.15rem;
+  color: var(--text-dim);
+}
+
+.target-note {
+  margin-top: 14px;
+  font-size: 1rem;
+  color: var(--text-dim);
+  min-height: 1.4em;
+}
+
+.target-note.reached {
+  color: var(--curry-green);
+  font-weight: 600;
+}
+
+.controls {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.btn {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-listen {
+  background: var(--chili);
+  color: #fff;
+  min-width: 220px;
+}
+
+.btn-listen.active {
+  background: var(--curry-green);
+}
+
+.manual-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-manual {
+  background: var(--bg-card-raised);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 1.3rem;
+}
+
+.btn-reset {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 12px 20px;
+}
+
+.mic-status {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  min-height: 1.2em;
+}
+
+.btn-stop-alarm {
+  background: var(--chili);
+  color: #fff;
+  margin-top: 16px;
+  width: 100%;
+  animation: alarmPulse 0.6s infinite alternate;
+}
+
+.custom-target-row {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  text-align: left;
+}
+
+.custom-target-row label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.custom-target-input {
+  display: flex;
+  gap: 10px;
+}
+
+.custom-target-input input[type="number"] {
+  flex: 1;
+  background: var(--bg-card-raised);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.custom-target-input input[type="number"]:focus {
+  outline: 2px solid var(--curry-green);
+}
+
+.btn-set-target {
+  background: var(--curry-green);
+  color: #fff;
+  padding: 10px 18px;
+  white-space: nowrap;
+}
+
+.counter-card.alarming {
+  animation: cardAlarm 0.6s infinite alternate;
+  border-color: var(--chili);
+}
+
+@keyframes cardAlarm {
+  from {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  }
+
+  to {
+    box-shadow: 0 0 0 6px rgba(230, 72, 58, 0.35), 0 20px 50px rgba(0, 0, 0, 0.35);
+  }
+}
+
+@keyframes alarmPulse {
+  from {
+    filter: brightness(1);
+  }
+
+  to {
+    filter: brightness(1.25);
+  }
+}
+
+.sensitivity-row {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.sensitivity-row label {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+.sensitivity-row input[type="range"] {
+  width: 100%;
+  accent-color: var(--paprika);
+}
+
+.sens-hint {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  opacity: 0.8;
+}
+
+.recipes-section {
+  margin-top: 52px;
+}
+
+.recipes-section h2 {
+  font-size: 1.8rem;
+}
+
+.section-sub {
+  color: var(--text-dim);
+  margin-top: 6px;
+  margin-bottom: 22px;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.recipe-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent, var(--turmeric));
+  border-radius: 10px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+  text-align: left;
+}
+
+.recipe-card:hover {
+  transform: translateY(-2px);
+}
+
+.recipe-card.selected {
+  background: var(--bg-card-raised);
+  outline: 2px solid var(--accent, var(--turmeric));
+}
+
+.recipe-name {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.recipe-whistles {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+.recipe-whistles strong {
+  color: var(--accent, var(--turmeric));
+  font-size: 1.1rem;
+}
+
+.site-foot {
+  margin-top: 48px;
+  text-align: center;
+}
+
+.site-foot p {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  opacity: 0.8;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+@media (max-width: 420px) {
+  .controls {
+    gap: 12px;
+  }
+}
